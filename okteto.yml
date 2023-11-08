@@ -4,6 +4,9 @@ build:
 deploy:
   - helm upgrade --install result chart --set image=${OKTETO_BUILD_RESULT_IMAGE}
 
+forward:
+  - 5432:postgresql:5432
+
 dev:
   result:
     command: nodemon server.js
